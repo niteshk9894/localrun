@@ -5,15 +5,15 @@ Pre requisites:
   2. Docker compose needs to installed.
 
 To install redis on windows (WSL):
-  sudo apt-add-repository ppa:redislabs/redis
-  sudo apt-get update
-  sudo apt-get upgrade
-  sudo apt-get install redis-server
+  1. sudo apt-add-repository ppa:redislabs/redis
+  2. sudo apt-get update
+  3. sudo apt-get upgrade
+  4. sudo apt-get install redis-server
 
   ./redis.sh
 To install on mac:
-  brew install redis
-  ./redis.sh
+  1. brew install redis
+  2. ./redis.sh
 
 To kill redis server :
   1. ps aux | grep redis-server
