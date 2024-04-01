@@ -16,5 +16,5 @@ To install on mac:
   ./redis.sh
 
 To kill redis server :
-  ps aux | grep redis-server
+  ps aux | grep redis-server \n
   pkill -KILL redis-server
