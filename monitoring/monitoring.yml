@@ -15,3 +15,14 @@ services:
       - 3000:3000
     volumes:
       - ./grafana/provisioning/:/etc/grafana/provisioning/
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.35
+    container_name: jaeger
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+    ports:
+      - "16685:16685"
+      - "16686:16686"
+      - "4317:4317"
+      - "4318:4318"
