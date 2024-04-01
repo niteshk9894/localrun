@@ -11,6 +11,7 @@ To install redis on windows (WSL):
   4. sudo apt-get install redis-server
 
   ./redis.sh
+  
 To install on mac:
   1. brew install redis
   2. ./redis.sh
