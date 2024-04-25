@@ -1,9 +1,14 @@
 version: '3'
 
+networks:
+  elastic:
+    driver: bridge
 
 services:
 
   zookeeper-1:
+    networks:
+      - elastic
     image: confluentinc/cp-zookeeper:latest
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
@@ -12,6 +17,8 @@ services:
       - 22181:2181
 
   zookeeper-2:
+    networks:
+      - elastic
     image: confluentinc/cp-zookeeper:latest
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
@@ -20,6 +27,8 @@ services:
       - 32181:2181
 
   kafka-1:
+    networks:
+      - elastic
     image: confluentinc/cp-kafka:latest
     depends_on:
       - zookeeper-1
@@ -35,6 +44,8 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
   kafka-2:
+    networks:
+      - elastic
     image: confluentinc/cp-kafka:latest
     depends_on:
       - zookeeper-1
@@ -73,6 +84,8 @@ services:
       - "11211:11211"
 
   kafkaui:
+    networks:
+      - elastic
     depends_on:
       - kafka-1
       - kafka-2
