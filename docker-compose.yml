@@ -71,6 +71,18 @@ services:
     container_name: memcached
     ports:
       - "11211:11211"
+
+  kafkaui:
+    depends_on:
+      - kafka-1
+      - kafka-2
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - "8000:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: kafka-1
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka-1:9092"
+      DYNAMIC_CONFIG_ENABLED: 'true'
 volumes:
   postgres-read:
   postgres-write:
