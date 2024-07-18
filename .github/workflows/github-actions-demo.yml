@@ -20,9 +20,7 @@ jobs:
         uses: muhfaris/request-action@v0.1.2
         with:
           url: ${{ secrets.API_URL }}
-          headers: |
-            Authorization: Bearer ${{ secrets.API_TOKEN }}
-            Content-Type: application/json
+          headers: '{"Authorization": "Bearer ${{ secrets.API_TOKEN }}", "Content-Type": "application/json"}'
           method: POST
       - name: Show API Response Status
         run: |
