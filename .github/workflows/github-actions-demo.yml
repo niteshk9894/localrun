@@ -27,11 +27,10 @@ jobs:
           url: ${{ secrets.API_URL }}
           headers: '{"Authorization": "Bearer dtb_user_5d536481853c42019cc00a809c05afec", "Content-Type": "application/json"}'
           method: GET
-      - name: Show API Response Status
+      - name: Call external API with authentication
+        id: api_request
         run: |
-          echo "Response Status: ${{ steps.api-request.outputs.response-status }}"
-
-      - name: Show API Response Data
-        run: |
-          echo "Response Data: ${{ steps.api-request.outputs.response-data }}"
+          curl --location --request GET 'https://frontend-staging.apps1.dtb.one-edge.intel.com/byoc/api/v1/pod' \
+          --header 'Content-Type: application/json' \
+          --header 'Authorization: Bearer dtb_user_5d536481853c42019cc00a809c05afec'
       - run: echo "🍏 This job's status is ${{ job.status }}."
