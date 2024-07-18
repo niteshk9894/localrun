@@ -15,6 +15,11 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - id: joke
+        name: My Joke Action
+        uses: nviriyadamrongkij/skills-write-javascript-actions@v2
+
+      - run: echo "${{ steps.joke.outputs.joke }}"
       - name: Make API Request
         id: api-request
         uses: muhfaris/request-action@v0.1.2
