@@ -20,13 +20,6 @@ jobs:
         uses: nviriyadamrongkij/skills-write-javascript-actions@v2
 
       - run: echo "${{ steps.joke.outputs.joke }}"
-      - name: Make API Request
-        id: api-request
-        uses: muhfaris/request-action@v0.1.2
-        with:
-          url: ${{ secrets.API_URL }}
-          headers: '{"Authorization": "Bearer dtb_user_5d536481853c42019cc00a809c05afec", "Content-Type": "application/json"}'
-          method: GET
       - name: Call external API with authentication
         id: api_request
         run: |
