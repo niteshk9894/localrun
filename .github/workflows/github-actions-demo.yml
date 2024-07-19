@@ -5,7 +5,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: demo1
     steps:
-      - name: Call external API with authentication1
+      - name: Call external API with authentication
         id: api_request
         run: |
           curl --location --request GET 'https://localhost:8080/byoc/api/v1/pod' \
